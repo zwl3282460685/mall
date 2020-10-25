@@ -1,0 +1,32 @@
+package com.zwl.lunbotu.entity;
+
+//库存修改所需实体
+public class StockNumDTO {
+
+    private Long goodsId;
+    private Integer goodsCount;
+
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public Integer getGoodsCount() {
+        return goodsCount;
+    }
+
+    public void setGoodsCount(Integer goodsCount) {
+        this.goodsCount = goodsCount;
+    }
+
+    @Override
+    public String toString() {
+        return "StockNumDTO{" +
+                "goodsId=" + goodsId +
+                ", goodsCount=" + goodsCount +
+                '}';
+    }
+}
