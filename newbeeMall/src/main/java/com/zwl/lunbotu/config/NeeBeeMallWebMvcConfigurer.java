@@ -4,6 +4,7 @@ import com.zwl.lunbotu.common.Constants;
 import com.zwl.lunbotu.interceptor.AdminLoginInterceptor;
 import com.zwl.lunbotu.interceptor.NewBeeMallCartNumberInterceptor;
 import com.zwl.lunbotu.interceptor.NewBeeMallLoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
