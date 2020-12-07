@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zwl.lunbotu.dao.CarouselMapper">
-    <resultMap id="BaseResultMap" type="com.zwl.lunbotu.entity.Carousel">
+<mapper namespace="com.zwl.mall.dao.CarouselMapper">
+    <resultMap id="BaseResultMap" type="com.zwl.mall.entity.Carousel">
         <id column="carousel_id" jdbcType="INTEGER" property="carouselId"/>
         <result column="carousel_url" jdbcType="VARCHAR" property="carouselUrl"/>
         <result column="redirect_url" jdbcType="VARCHAR" property="redirectUrl"/>
@@ -33,7 +33,7 @@
         select count(*) from tb_newbee_mall_carousel
         where is_deleted = 0
     </select>
-    <insert id="insertSelective" parameterType="com.zwl.lunbotu.entity.Carousel" >
+    <insert id="insertSelective" parameterType="com.zwl.mall.entity.Carousel" >
         insert into tb_newbee_mall_carousel
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="carouselId != null">
@@ -109,7 +109,7 @@
         where carousel_id = #{carouselId,jdbcType=INTEGER}
     </select>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.lunbotu.entity.Carousel">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.mall.entity.Carousel">
         update tb_newbee_mall_carousel
         <set>
             <if test="carouselUrl != null">

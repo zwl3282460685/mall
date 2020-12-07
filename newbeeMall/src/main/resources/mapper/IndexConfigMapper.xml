@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zwl.lunbotu.dao.IndexConfigMapper">
-    <resultMap id="BaseResultMap" type="com.zwl.lunbotu.entity.IndexConfig">
+<mapper namespace="com.zwl.mall.dao.IndexConfigMapper">
+    <resultMap id="BaseResultMap" type="com.zwl.mall.entity.IndexConfig">
         <id column="config_id" jdbcType="BIGINT" property="configId"/>
         <result column="config_name" jdbcType="VARCHAR" property="configName"/>
         <result column="config_type" jdbcType="TINYINT" property="configType"/>
@@ -46,7 +46,7 @@
         </where>
     </select>
 
-    <insert id="insertSelective" parameterType="com.zwl.lunbotu.entity.IndexConfig">
+    <insert id="insertSelective" parameterType="com.zwl.mall.entity.IndexConfig">
         insert into tb_newbee_mall_index_config
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="configId != null">
@@ -127,7 +127,7 @@
         where config_id = #{configId,jdbcType=BIGINT} and is_deleted=0
     </select>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.lunbotu.entity.IndexConfig">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.mall.entity.IndexConfig">
         update tb_newbee_mall_index_config
         <set>
             <if test="configName != null">

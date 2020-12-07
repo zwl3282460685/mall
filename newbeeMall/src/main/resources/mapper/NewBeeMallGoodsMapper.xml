@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zwl.lunbotu.dao.NewBeeMallGoodsMapper">
-    <resultMap id="BaseResultMap" type="com.zwl.lunbotu.entity.NewBeeMallGoods">
+<mapper namespace="com.zwl.mall.dao.NewBeeMallGoodsMapper">
+    <resultMap id="BaseResultMap" type="com.zwl.mall.entity.NewBeeMallGoods">
         <id column="goods_id" jdbcType="BIGINT" property="goodsId"/>
         <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>
         <result column="goods_intro" jdbcType="VARCHAR" property="goodsIntro"/>
@@ -18,7 +18,7 @@
         <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
-    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zwl.lunbotu.entity.NewBeeMallGoods">
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zwl.mall.entity.NewBeeMallGoods">
         <result column="goods_detail_content" jdbcType="LONGVARCHAR" property="goodsDetailContent"/>
     </resultMap>
 
@@ -33,7 +33,7 @@
   </sql>
 
     <!--保存产品信息-->
-    <insert id="insertSelective" parameterType="com.zwl.lunbotu.entity.NewBeeMallGoods">
+    <insert id="insertSelective" parameterType="com.zwl.mall.entity.NewBeeMallGoods">
         insert into tb_newbee_mall_goods_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="goodsId != null">
@@ -146,7 +146,7 @@
         where goods_id = #{goodsId, jdbcType=BIGINT}
     </select>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.lunbotu.entity.NewBeeMallGoods">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.mall.entity.NewBeeMallGoods">
         update tb_newbee_mall_goods_info
         <set>
             <if test="goodsName != null">

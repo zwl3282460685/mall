@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zwl.lunbotu.dao.GoodsCategoryMapper">
-    <resultMap id="BaseResultMap" type="com.zwl.lunbotu.entity.GoodsCategory">
+<mapper namespace="com.zwl.mall.dao.GoodsCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.zwl.mall.entity.GoodsCategory">
         <id column="category_id" jdbcType="BIGINT" property="categoryId"/>
         <result column="category_level" jdbcType="TINYINT" property="categoryLevel"/>
         <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
@@ -62,7 +62,7 @@
         and is_deleted = 0 limit 1
     </select>
 
-    <insert id="insertSelective" parameterType="com.zwl.lunbotu.entity.GoodsCategory">
+    <insert id="insertSelective" parameterType="com.zwl.mall.entity.GoodsCategory">
         insert into tb_newbee_mall_goods_category
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="categoryId != null">
@@ -139,7 +139,7 @@
     </select>
 
     <!--根据主键进行更新-->
-    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.lunbotu.entity.GoodsCategory">
+    <update id="updateByPrimaryKeySelective" parameterType="com.zwl.mall.entity.GoodsCategory">
         update tb_newbee_mall_goods_category
         <set>
             <if test="categoryLevel != null">
