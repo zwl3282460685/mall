@@ -2,6 +2,7 @@ package com.zwl.lunbotu.controller.mall;
 
 import com.zwl.lunbotu.entity.MallUser;
 import com.zwl.lunbotu.entity.User;
+import com.zwl.lunbotu.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
