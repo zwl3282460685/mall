@@ -10,6 +10,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+
+//swagger2配置类
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
@@ -19,7 +21,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.zwl.lunbotu.controller.mall"))
+                .apis(RequestHandlerSelectors.basePackage("com.zwl.mall.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

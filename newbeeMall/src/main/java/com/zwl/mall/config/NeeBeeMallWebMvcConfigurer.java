@@ -11,6 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
+
+//配置相关的拦截器
 @Configuration
 public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
 

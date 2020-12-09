@@ -1,14 +1,12 @@
-package com.zwl.lunbotu.controller.mall;
+package com.zwl.mall.controller.mall;
 
-import com.zwl.lunbotu.entity.MallUser;
-import com.zwl.lunbotu.entity.User;
+import com.zwl.mall.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.*;
 
 @RestController

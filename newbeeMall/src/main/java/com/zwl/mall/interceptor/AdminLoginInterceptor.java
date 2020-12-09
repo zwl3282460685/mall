@@ -7,6 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 后台系统身份验证拦截器
+ */
 @Component
 public class AdminLoginInterceptor implements HandlerInterceptor {
 

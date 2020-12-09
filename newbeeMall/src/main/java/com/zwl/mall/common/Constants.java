@@ -4,7 +4,7 @@ package com.zwl.mall.common;
  * 常量配置
  * */
 public class Constants {
-    public static final String FILE_UPLOAD_DIC = "D:\\git\\mall\\upload\\"; //上传文件的默认url前缀
+    public static final String FILE_UPLOAD_DIC = "D:\\upload\\"; //上传文件的默认url前缀
     public static final int SELL_STATUS_UP = 0;  //商品上架状态
     public static final int SELL_STATUS_DOWN = 1;//商品下架状态
 

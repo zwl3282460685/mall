@@ -2,6 +2,8 @@ package com.zwl.mall.controller.admin;
 
 import com.zwl.mall.entity.AdminUser;
 import com.zwl.mall.service.AdminUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -13,17 +15,20 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/admin")
+@Api(tags = "用户登录管理页面首页接口")
 public class AdminController {
 
     @Resource
     private AdminUserService adminUserService;
 
     @GetMapping({"/login"})
+    @ApiOperation("后台管理系统登录页面跳转接口")
     public String login() {
         return "admin/login";
     }
 
     @PostMapping(value = "/login")
+    @ApiOperation("后台管理系统的登录接口")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("password") String password,
                         @RequestParam("verifyCode") String verifyCode,
@@ -46,7 +51,7 @@ public class AdminController {
             session.setAttribute("loginUser", adminUser.getNickName());
             session.setAttribute("loginUserId", adminUser.getAdminUserId());
             //session过期时间设置为7200秒 即两小时
-            //session.setMaxInactiveInterval(60 * 60 * 2);
+            session.setMaxInactiveInterval(60 * 60 * 2);
             return "redirect:/admin/index";
         } else {
             session.setAttribute("errorMsg", "登录信息错误");
@@ -55,11 +60,13 @@ public class AdminController {
     }
 
     @GetMapping({"/index"})
+    @ApiOperation("首页接口")
     public String index() {
         return "admin/index";
     }
 
     @GetMapping("/profile")
+    @ApiOperation("用户信息管理接口")
     public String profile(HttpServletRequest request) {
         Integer loginUserId = (int) request.getSession().getAttribute("loginUserId");
         AdminUser adminUser = adminUserService.getUserDetailById(loginUserId);

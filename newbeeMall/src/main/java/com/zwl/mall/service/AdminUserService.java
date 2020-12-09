@@ -4,6 +4,13 @@ import com.zwl.mall.entity.AdminUser;
 
 public interface AdminUserService {
 
+
+    /**
+     * 登录验证
+     * @param userName
+     * @param password
+     * @return
+     */
     AdminUser login(String userName, String password);
 
 

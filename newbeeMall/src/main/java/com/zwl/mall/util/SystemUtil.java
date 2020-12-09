@@ -5,9 +5,6 @@ import java.security.MessageDigest;
 
 /**
  * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
  */
 public class SystemUtil {
 
@@ -17,7 +14,6 @@ public class SystemUtil {
 
     /**
      * 登录或注册成功后,生成保持用户登录状态会话token值
-     *
      * @param src:为用户最新一次登录时的now()+user.id+random(4)
      * @return
      */
