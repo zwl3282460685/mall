@@ -12,7 +12,6 @@ $(function () {
                 url: "/admin/profile/name",
                 data: params,
                 success: function (r) {
-                    console.log(r);
                     if (r == 'success') {
                         alert('修改成功');
                     } else {
@@ -34,7 +33,6 @@ $(function () {
                 url: "/admin/profile/password",
                 data: params,
                 success: function (r) {
-                    console.log(r);
                     if (r == 'success') {
                         alert('修改成功');
                         window.location.href = '/admin/login';

@@ -66,7 +66,7 @@ public class AdminController {
     }
 
     @GetMapping("/profile")
-    @ApiOperation("用户信息管理接口")
+    @ApiOperation("获取用户信息接口")
     public String profile(HttpServletRequest request) {
         Integer loginUserId = (int) request.getSession().getAttribute("loginUserId");
         AdminUser adminUser = adminUserService.getUserDetailById(loginUserId);
@@ -81,6 +81,7 @@ public class AdminController {
 
     @PostMapping("/profile/password")
     @ResponseBody
+    @ApiOperation("修改用户密码")
     public String passwordUpdate(HttpServletRequest request, @RequestParam("originalPassword") String originalPassword,
                                  @RequestParam("newPassword") String newPassword) {
         if (StringUtils.isEmpty(originalPassword) || StringUtils.isEmpty(newPassword)) {
@@ -100,6 +101,7 @@ public class AdminController {
 
     @PostMapping("/profile/name")
     @ResponseBody
+    @ApiOperation("修改用户名称")
     public String nameUpdate(HttpServletRequest request, @RequestParam("loginUserName") String loginUserName,
                              @RequestParam("nickName") String nickName) {
         if (StringUtils.isEmpty(loginUserName) || StringUtils.isEmpty(nickName)) {

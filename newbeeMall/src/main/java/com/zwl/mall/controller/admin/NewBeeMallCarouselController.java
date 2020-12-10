@@ -6,6 +6,8 @@ import com.zwl.mall.service.NewBeeMallCarouselService;
 import com.zwl.mall.util.PageQueryUtil;
 import com.zwl.mall.util.Result;
 import com.zwl.mall.util.ResultGenerator;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/admin")
+@Api("轮播图相关接口")
 public class NewBeeMallCarouselController {
 
     @Resource
@@ -29,11 +32,9 @@ public class NewBeeMallCarouselController {
         return "admin/newbee_mall_carousel";
     }
 
-    /**
-     * 获取轮播图列表
-     */
     @GetMapping("/carousels/list")
     @ResponseBody
+    @ApiOperation("轮播图分页列表接口")
     public Result list(@RequestParam Map<String, Object> params){
         if(StringUtils.isEmpty(params.get("page")) || StringUtils.isEmpty(params.get("limit"))){
             return ResultGenerator.genFailResult("参数异常");
@@ -42,11 +43,10 @@ public class NewBeeMallCarouselController {
         return ResultGenerator.genSuccessResult(newBeeMallCarouselService.getCarouselPage(pageQueryUtil));
     }
 
-    /**
-     * 添加轮播图
-     */
+
     @RequestMapping(value = "/carousels/save", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation("添加轮播图接口")
     public Result save(@RequestBody Carousel carousel){
         if(StringUtils.isEmpty(carousel.getCarouselUrl()) || Objects.isNull(carousel.getCarouselRank())){
             return ResultGenerator.genFailResult("参数异常！");
@@ -59,11 +59,10 @@ public class NewBeeMallCarouselController {
         }
     }
 
-    /**
-     * 删除轮播图
-     */
+
     @RequestMapping(value = "/carousels/delete", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation("删除轮播图接口")
     public Result delete(@RequestBody Integer[] ids){
         if(ids.length < 1){
             return ResultGenerator.genFailResult("参数异常");
@@ -75,11 +74,9 @@ public class NewBeeMallCarouselController {
         }
     }
 
-    /**
-     *获取轮播图信息
-     */
     @GetMapping("/carousels/info/{id}")
     @ResponseBody
+    @ApiOperation("获取轮播图信息接口")
     public Result info(@PathVariable("id") Integer id){
          Carousel carousel = newBeeMallCarouselService.getCarouselById(id);
          if(carousel == null){
@@ -88,14 +85,9 @@ public class NewBeeMallCarouselController {
          return ResultGenerator.genSuccessResult(carousel);
     }
 
-
-    /**
-     * 更新轮播图
-     * @param carousel
-     * @return
-     */
     @PostMapping("/carousels/update")
     @ResponseBody
+    @ApiOperation("更新轮播图信息接口")
     public Result update(@RequestBody Carousel carousel){
         if(Objects.isNull(carousel.getCarouselId())
                 || StringUtils.isEmpty(carousel.getCarouselUrl())

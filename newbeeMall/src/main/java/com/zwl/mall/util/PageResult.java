@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 分页工具类
+ * 分页结果的封装,用于JqGrid的渲染
  */
 public class PageResult implements Serializable {
 
@@ -21,7 +21,6 @@ public class PageResult implements Serializable {
 
     /**
      * 分页
-     *
      * @param list       列表数据
      * @param totalCount 总记录数
      * @param pageSize   每页记录数
