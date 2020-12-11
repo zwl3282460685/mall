@@ -7,6 +7,8 @@ import com.zwl.mall.service.NewBeeMallCategoryService;
 import com.zwl.mall.util.PageQueryUtil;
 import com.zwl.mall.util.Result;
 import com.zwl.mall.util.ResultGenerator;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
@@ -18,6 +20,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/admin")
+@Api(tags = "商品类目分页列表接口")
 public class NewBeeMallGoodsCategoryController {
 
     @Autowired
@@ -28,6 +31,7 @@ public class NewBeeMallGoodsCategoryController {
      */
     @RequestMapping(value = "/categories/list", method = RequestMethod.GET)
     @ResponseBody
+    @ApiOperation("获取所有的商品类目分页列表")
     public Result list(@RequestParam Map<String, Object> params) {
         if (StringUtils.isEmpty(params.get("page")) || StringUtils.isEmpty(params.get("limit"))) {
             return ResultGenerator.genFailResult("参数异常！");
@@ -38,12 +42,12 @@ public class NewBeeMallGoodsCategoryController {
 
     /**
      * 添加商品类目
-     *
      * @param goodsCategory
      * @return
      */
     @RequestMapping(value = "/categories/save", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation("添加商品类目")
     public Result save(@RequestBody GoodsCategory goodsCategory) {
         if (Objects.isNull(goodsCategory.getCategoryLevel())
                 || StringUtils.isEmpty(goodsCategory.getCategoryName())
@@ -64,6 +68,7 @@ public class NewBeeMallGoodsCategoryController {
      */
     @RequestMapping(value = "/categories/update", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation("修改商品类目")
     public Result update(@RequestBody GoodsCategory goodsCategory) {
         if (Objects.isNull(goodsCategory.getCategoryId())
                 || Objects.isNull(goodsCategory.getCategoryLevel())
@@ -85,6 +90,7 @@ public class NewBeeMallGoodsCategoryController {
      */
     @RequestMapping(value = "/categories/delete", method = RequestMethod.POST)
     @ResponseBody
+    @ApiOperation("删除商品类目")
     public Result delete(@RequestBody Integer[] ids) {
         if (ids.length < 1) {
             return ResultGenerator.genFailResult("参数错误");
@@ -100,6 +106,7 @@ public class NewBeeMallGoodsCategoryController {
      *分类管理页面
      */
     @GetMapping("/categories")
+    @ApiOperation("分类管理页面")
     public String categoriesPage(HttpServletRequest request,
                                  @RequestParam("categoryLevel") Byte categoryLevel,
                                  @RequestParam("parentId") Long parentId,

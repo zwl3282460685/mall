@@ -55,6 +55,7 @@ public class NewBeeMallCategoryServiceImpl implements NewBeeMallCategoryService 
             return ServiceResultEnum.DATA_NOT_EXIST.getResult();
         }
         GoodsCategory temp2 = goodsCategoryMapper.selectByLevelAndName(goodsCategory.getCategoryLevel(), goodsCategory.getCategoryName());
+        //同名且不同id 不能继续修改
         if(temp2 != null && !temp2.getCategoryId().equals(goodsCategory.getCategoryId())){
             return ServiceResultEnum.SAME_CATEGORY_EXIST.getResult();
         }

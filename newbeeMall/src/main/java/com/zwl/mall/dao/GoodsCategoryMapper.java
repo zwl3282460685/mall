@@ -22,5 +22,7 @@ public interface GoodsCategoryMapper {
 
     int deleteBatch(Integer[] ids);
 
-    List<GoodsCategory> selectByLevelAndParentIdsAndNumber(@Param("parentsIds") List<Long> parentsIds, @Param("categoryLevel") int categoryLevel, @Param("number") int number);
+    List<GoodsCategory> selectByLevelAndParentIdsAndNumber(@Param("parentsIds") List<Long> parentsIds,
+                                                           @Param("categoryLevel") int categoryLevel,
+                                                           @Param("number") int number);
 }
